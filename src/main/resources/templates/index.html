@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Directory</title>
+    <link rel="stylesheet" href="../static/css/style.css">
+</head>
+<body>
+    <div id="app">
+        <header class="app-header">
+            <h1>Employee Directory</h1>
+    
+                <input type="text" id="search-input" class='input' placeholder="Search by name or email">
+                <button id="header-filter-btn" class="btn btn-filter">Filter</button>
+        
+        </header>
+
+        <div class="page-layout">
+            <div class="main-content-area">
+                <section id="dashboard-view">
+                    <div class="controls-panel">
+                        <div class="sort-show-group">
+                            <label for="sort-by">Sort: </label>
+                            <select id="sort-by">
+                                <option value="firstNameAsc">--Select--</option>
+                                <option value="firstNameAsc">First Name (A-Z)</option>
+                                <option value="firstNameDesc">First Name (Z-A)</option>
+                                <option value="departmentAsc">Department (A-Z)</option>
+                                <option value="departmentDesc">Department (Z-A)</option>
+                            </select>
+                            <label for="items-per-page">Show:</label>
+                            <select id="items-per-page">
+                                <option value="3">3</option>
+                                <option value="6">6</option>
+                                <option value="10">10</option>
+                                <option value="25">25</option>
+                                <option value="50">50</option>
+                                <option value="100">100</option>
+                            </select>
+                        </div>
+                        <button id="add-employee-btn" class="btn btn-add-employee">Add Employee</button>
+                    </div>
+
+                    <div id="employee-list-container" class="employee-list">
+                        </div>
+
+                    <div class="pagination-controls">
+                        <button id="prev-page-btn" class="btn">&laquo; Previous</button>
+                        <span id="page-info">Page 1 of 1</span>
+                        <button id="next-page-btn" class="btn">Next &raquo;</button>
+                    </div>
+                </section>
+
+                <section id="form-view" class="form-section hidden">
+                    <h2 id="form-title">Add New Employee</h2>
+                    <form id="employee-form">
+                        <input type="hidden" id="employee-id">
+
+                        <div class="form-group">
+                            <label for="firstName">First name</label>
+                            <input type="text" id="firstName" name="firstName" required>
+                            <div class="error-message" id="firstName-error"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="lastName">Last name</label>
+                            <input type="text" id="lastName" name="lastName" required>
+                            <div class="error-message" id="lastName-error"></div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                                <div class="error-message" id="email-error"></div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="department">Department</label>
+                                <select id="department" name="department" required>
+                                    <option value="">Select Department</option>
+                                    <option value="HR">HR</option>
+                                    <option value="IT">IT</option>
+                                    <option value="Finance">Finance</option>
+                                    <option value="Marketing">Marketing</option>
+                                </select>
+                                <div class="error-message" id="department-error"></div>
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="role">Role</label>
+                            <input type="text" id="role" name="role" required>
+                            <div class="error-message" id="role-error"></div>
+                        </div>
+
+                        <div class="form-actions">
+                            <button type="button" id="cancel-btn" class="btn btn-cancel-form">Cancel</button>
+                            <button type="submit" class="btn btn-save-form">Add</button>
+                        </div>
+                    </form>
+                </section>
+            </div>
+
+            <aside id="filter-sidebar" class="filter-sidebar hidden-initially">
+                <h3>Filter Employees</h3>
+                <div class="sidebar-form-group">
+                    <label for="sidebar-first-name">First Name:</label>
+                    <input type="text" id="sidebar-first-name">
+                </div>
+                <div class="sidebar-form-group">
+                    <label for="sidebar-department">Department:</label>
+                    <input type="text" id="sidebar-department">
+                </div>
+                <div class="sidebar-form-group">
+                    <label for="sidebar-role">Role:</label>
+                    <input type="text" id="sidebar-role">
+                </div>
+                <div class="sidebar-actions">
+                    <button id="sidebar-apply-btn" class="btn">Apply</button>
+                    <button id="sidebar-reset-btn" class="btn">Reset</button>
+                </div>
+            </aside>
+        </div>
+
+        <footer class="app-footer">
+            © 2025 Employee Directory App. All rights reserved.
+        </footer>
+    </div>
+
+    <script src="../static/js/data.js"></script>
+    <script src="../static/js/app.js"></script>
+</body>
+</html>
